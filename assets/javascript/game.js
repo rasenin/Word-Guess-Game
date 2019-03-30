@@ -1,15 +1,16 @@
-var guessedWordDiv = document.getElementById("guessed-word");
-var winsDiv = document.getElementById("wins");
-var numGuessesDiv = document.getElementById("num-guesses");
-var GuessedDiv = document.getElementById("guessed");
-var ResultDiv = document.getElementById("result");
+var audio = new Audio("assets/sounds/success.mp3");
 
 var randIndex = Math.floor(Math.random() * words.length);
 var word = words[randIndex];
 
+var guessedWordDiv = document.getElementById("guessed-word");
+var winsDiv = document.getElementById("wins");
+var numGuessesDiv = document.getElementById("num-guesses");
+var GuessedDiv = document.getElementById("guessed");
+
 var gameInfo = {
   wins: 0,
-  numGuesses: 10,
+  numGuesses: 12,
   targetWord: word,
   currentWord: HideWord(word),
   alreadyGuessed: [],
@@ -18,10 +19,9 @@ var gameInfo = {
     numGuessesDiv.textContent = "Guesses left: " + this.numGuesses;
     GuessedDiv.textContent = "Already guessed: " + this.alreadyGuessed;
     winsDiv.textContent = "Wins: " + this.wins;
-    ResultDiv.textContent = GetResult();
   },
   GetNewWord: function() {
-    this.numGuesses = 10; // reset number of allowed guesses
+    this.numGuesses = 12; // reset number of allowed guesses
 
     // copy the last word to the spot where the current target word was located and pop the last word from the array
     // this ensures we always get a new word
@@ -53,30 +53,12 @@ function DisplayWord(word) {
   return displayedWord;
 }
 
-function onKeyDown(event) {
-  event.preventDefault();
-}
-
-function GetResult() {
-  if (gameInfo.currentWord === gameInfo.targetWord) {
-    gameInfo.wins++;
-    gameInfo.GetNewWord();
-    return "Congratulations! You guessed the word correctly! Press any key to go again.";
-  }
-  if (gameInfo.numGuesses === 0) {
-    var oldWord = gameInfo.targetWord;
-    gameInfo.GetNewWord();
-    return (
-      "You didn't guess the word \"" +
-      oldWord +
-      '". Press any key to go again.'
-    );
-  }
-  return "";
-}
+document.getElementById("gamelog").style.display = "none"; // hide game log initially
 
 // starts the game
 document.onkeypress = function(event) {
+  document.getElementById("header").style.display = "none"; // hide greet message
+  document.getElementById("gamelog").style.display = ""; // show game log from now on
   gameInfo.Display();
 
   document.onkeypress = function(event) {
@@ -102,9 +84,16 @@ document.onkeypress = function(event) {
         gameInfo.numGuesses--;
       }
 
+      if (gameInfo.currentWord === gameInfo.targetWord) {
+        audio.play();
+        gameInfo.wins++;
+        gameInfo.GetNewWord();
+      }
+      if (gameInfo.numGuesses === 0) {
+        gameInfo.GetNewWord();
+      }
+
       gameInfo.Display();
-    } else {
-      onKeyDown(event);
     }
   };
 };

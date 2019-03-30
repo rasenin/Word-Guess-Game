@@ -17,52 +17,40 @@
     <!-- My Stylesheet -->
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
+
   <body>
     <div class="container">
-      <div class="jumbotron">
-        <h1>Welcome to Word Guess!</h1>
-        <h3>Press any key to get started.</h3>
+      <div id="header" class="jumbotron mt-2">
+        <h2>Welcome to Word Guess!</h2>
+        <h4>Press any key to get started.</h4>
       </div>
 
-      <div class="row">
-        <div id="guessed-word" class="col-md-12"></div>
-      </div>
-      <div class="row">
-        <div id="num-guesses" class="col-md-12"></div>
-      </div>
-      <div class="row">
-        <div id="guessed" class="col-md-12"></div>
-      </div>
-      <div class="row mt-2">
-        <div id="wins" class="col-md-12"></div>
-      </div>
+      <div id="gamelog">
+        <div class="row mt-2">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-body">
+                <p id="guessed-word" class="card-text"></p>
+              </div>
+            </div>
+          </div>
+        </div>
 
-      <div class="row">
-        <div id="result" class="col-md-12"></div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-body">
+                <p id="num-guesses" class="card-text"></p>
+                <p id="guessed" class="card-text"></p>
+                <p id="wins" class="card-text"></p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- Bootstrap jQuery -->
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <!-- Additional js library -->
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <!-- Bootstrap javascript -->
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
-
     <!-- My javascript files -->
-
     <script src="assets/javascript/words.js"></script>
     <script src="assets/javascript/game.js"></script>
   </body>
