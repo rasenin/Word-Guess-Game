@@ -94,6 +94,8 @@ document.onkeypress = function(event) {
       }
 
       gameInfo.Display();
+    } else {
+        // break;
     }
   };
 };

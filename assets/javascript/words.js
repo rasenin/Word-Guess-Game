@@ -854,10 +854,3 @@ var words = [
   "Breytenbach",
   "Android"
 ];
-
-// remove any one- or two-letter words
-for (var i = 0; i < words.length; i++) {
-  if (words[i].length < 3) {
-   words.splice(i, 1);
-  }
-}
