@@ -44,7 +44,6 @@ function HideWord(word) {
 }
 
 function DisplayWord(word) {
-  console.log(gameInfo.targetWord);
   var displayedWord = "";
   for (var i = 0; i < word.length; i++) {
     displayedWord += word[i];
