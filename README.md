@@ -8,4 +8,4 @@ The game begins after a key press, after which the concealed word is displayed f
 
 Upon guessing the word correctly, a sound is played from the browser. Once the user guesses the word correctly or runs out of guesses a new word is selected and the all of the metrics apart from the wins counter reset to their initial values.
 
-The game can be played at [this link](https://rasenin.github.io/Word-Guess-Game/)
+The game can be played at [this link](https://rasenin.github.io/Word-Guess-Game/).
